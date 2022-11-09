@@ -9,8 +9,11 @@ if(isset($_POST['patsub1'])){
   $contact=$_POST['contact'];
 	$password=$_POST['password'];
   $cpassword=$_POST['cpassword'];
+  // $file_name = $_FILES['pdf_file']['name'];
+  // $file_tmp = $_FILES['pdf_file']['tmp_name'];
+  // move_uploaded_file($file_tmp,"./report/".$file_name);
   if($password==$cpassword){
-  	$query="insert into patreg(fname,lname,gender,email,contact,password,cpassword) values ('$fname','$lname','$gender','$email','$contact','$password','$cpassword');";
+  	$query="insert into patreg(fname,lname,gender,email,contact,password,cpassword,FileName) values ('$fname','$lname','$gender','$email','$contact','$password','$cpassword','$file_name');";
     $result=mysqli_query($con,$query);
     if($result){
         $_SESSION['username'] = $_POST['fname']." ".$_POST['lname'];
@@ -42,7 +45,19 @@ if(isset($_POST['update_data']))
 	if($result)
 		header("Location:updated.php");
 }
-
+if(isset($_POST['medsub1'])){
+  $pid=$_POST['pd'];
+  $wt=$_POST['wt'];
+  $b=$_POST['blood'];
+  $ht=$_POST['ht'];
+  $file_name = $_FILES['pdf_file']['name'];
+  $file_tmp = $_FILES['pdf_file']['tmp_name'];
+  $cd=date("Y-m-d");
+  move_uploaded_file($file_tmp,"./report/".$file_name);
+  $query="insert into med(pid,FileName,Blood,Weight,Height,report_date) values ('$pid','$file_name','$b','$wt','$ht','$cd');";
+  $result=mysqli_query($con,$query);
+  header("Location:admin-panel.php");
+}
 
 
 

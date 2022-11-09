@@ -37,8 +37,8 @@ function alphaOnly(event) {
 function checklen()
 {
     var pass1 = document.getElementById("password");  
-    if(pass1.value.length<6){  
-        alert("Password must be at least 6 characters long. Try again!");  
+    if(!(/(?=.*?[0-9])(?=.*?[a-z])(?=.*?[A-Z])(?=.*[^0-9A-Za-z]).+/).test(pass1.value)){  
+        alert("Password must contain atleast one uppercase and lowercase alphabet as well as one digit and a special character. Try again!");  
         return false;  
   }  
 }
@@ -98,7 +98,7 @@ function checklen()
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                 <h3 class="register-heading">Register as Patient</h3>
-                                <form method="post" action="func2.php">
+                                <form method="post" action="func2.php" enctype="multipart/form-data">
                                 <div class="row register-form">
                                     
                                     <div class="col-md-6">
@@ -111,6 +111,10 @@ function checklen()
                                         <div class="form-group">
                                             <input type="password" class="form-control" placeholder="Password *" id="password" name="password" onkeyup='check();' required/>
                                         </div>
+                                        <!-- <div class="form-group">
+                                            <label>add medical history*</label>
+                                            <input type="file" class="form-control"  name="pdf_file" accept=".pdf" title="Upload PDF"  />
+                                        </div> -->
                                         
                                         <div class="form-group">
                                             <div class="maxl">
