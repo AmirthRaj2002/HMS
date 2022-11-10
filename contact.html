@@ -14,6 +14,10 @@
         function alphaOnly(event) {
             var key = event.keyCode;
             return ((key >= 65 && key <= 90) || key == 8 || key == 32);
+            
+        function phNum(event) {
+            var key = event.keycode;
+            return ((key >= 48 && key <= 57) || key == 8 || key == 32 || key == 107);        
         };
     </script>
 
@@ -88,7 +92,7 @@
                         <input type="email" name="txtEmail" class="form-control" placeholder="Your Email *" value="" required />
                     </div>
                     <div class="form-group">
-                        <input type="tel" name="txtPhone" class="form-control" placeholder="Your Phone Number *" value="" minlength="10" maxlength="10" required />
+                        <input type="tel" name="txtPhone" class="form-control" placeholder="Your Phone Number *" value="" minlength="10" maxlength="10" onkeydown="return phNum(event);"required />
                     </div>
                     <div class="form-group">
                         <input type="submit" name="btnSubmit" class="btnContact" value="Send Message" />
