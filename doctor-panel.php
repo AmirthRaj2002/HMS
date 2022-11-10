@@ -242,7 +242,7 @@ if(isset($_GET['cancel']))
                         
                         </td>
 
-
+                        <td><a href="medhist.php?id=<?php echo $row['pid']; ?>"><button class="btn btn-primary" style="margin-top: 20px; margin-left: 20px; width: 80%;">Medical History</button></a></td>
                       </tr></a>
                     <?php } ?>
                 </tbody>

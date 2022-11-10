@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Mar 16, 2020 at 02:34 AM
--- Server version: 10.1.31-MariaDB
--- PHP Version: 7.2.4
+-- Host: 127.0.0.1
+-- Generation Time: Nov 09, 2022 at 08:02 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -62,10 +61,6 @@ CREATE TABLE `appointmenttb` (
   `doctorStatus` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `appointmenttb`
---
-
 -- --------------------------------------------------------
 
 --
@@ -78,10 +73,6 @@ CREATE TABLE `contact` (
   `contact` varchar(10) NOT NULL,
   `message` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `contact`
---
 
 -- --------------------------------------------------------
 
@@ -97,9 +88,20 @@ CREATE TABLE `doctb` (
   `docFees` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `doctb`
+-- Table structure for table `med`
 --
+
+CREATE TABLE `med` (
+  `pid` int(10) NOT NULL,
+  `FileName` varchar(50) NOT NULL,
+  `Blood` varchar(3) NOT NULL,
+  `Weight` float NOT NULL,
+  `Height` float NOT NULL,
+  `report_date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -115,12 +117,18 @@ CREATE TABLE `patreg` (
   `email` varchar(30) NOT NULL,
   `contact` varchar(10) NOT NULL,
   `password` varchar(30) NOT NULL,
-  `cpassword` varchar(30) NOT NULL
+  `cpassword` varchar(30) NOT NULL,
+  `FileName` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `patreg`
 --
+
+INSERT INTO `patreg` (`pid`, `fname`, `lname`, `gender`, `email`, `contact`, `password`, `cpassword`, `FileName`) VALUES
+(1, 'Abc', 'def', 'Male', 'abc@gmail.com', '1234567890', '123456', '123456', NULL),
+(5, 'ass', 'des', 'Male', 'abc@gmail.com', '2345678902', '111111', '111111', ''),
+(11, 'arc', 'arc', 'Male', 'abc@gmail.com', '2345678902', 'aA1!1', 'aA1!1', '');
 
 -- --------------------------------------------------------
 
@@ -140,12 +148,6 @@ CREATE TABLE `prestb` (
   `allergy` varchar(250) NOT NULL,
   `prescription` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `prestb`
---
-
-
 
 --
 -- Indexes for dumped tables
@@ -171,13 +173,13 @@ ALTER TABLE `patreg`
 -- AUTO_INCREMENT for table `appointmenttb`
 --
 ALTER TABLE `appointmenttb`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `patreg`
 --
 ALTER TABLE `patreg`
-  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

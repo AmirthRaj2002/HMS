@@ -231,12 +231,59 @@ function get_specs(){
       <a class="list-group-item list-group-item-action" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Book Appointment</a>
       <a class="list-group-item list-group-item-action" href="#app-hist" id="list-pat-list" role="tab" data-toggle="list" aria-controls="home">Appointment History</a>
       <a class="list-group-item list-group-item-action" href="#list-pres" id="list-pres-list" role="tab" data-toggle="list" aria-controls="home">Prescriptions</a>
-      
+      <?php 
+       $sql = "SELECT * FROM patreg WHERE fname = '$fname' AND lname = '$lname'";
+       $result = mysqli_query($con, $sql);
+       $row = mysqli_fetch_assoc($result);
+       $p= $row['pid'];
+      ?>
+      <a class="list-group-item list-group-item-action" href="#list-rep" id="list-pres-list-1" role="tab" data-toggle="list" aria-controls="home">Add Medical Report</a>
+      <a href="medhist.php?id=<?php echo $p; ?>"><button class="btn btn-primary" style="margin-top: 20px; margin-left: 20px; width: 80%;">View Medical History</button></a>
     </div><br>
   </div>
   <div class="col-md-8" style="margin-top: 3%;">
     <div class="tab-content" id="nav-tabContent" style="width: 950px;">
+      
+    <div class="tab-pane fade  show " id="list-rep" role="tabpanel" aria-labelledby="list-dash-list">
+      <div class="container-fluid container-fullw bg-white" >
+      <form method="post" action="func2.php" enctype="multipart/form-data">
+                                <div class="row register-form">
+                                    
+                                    <div class="col-md-6">
+                                       <?php 
+                                        $sql = "SELECT * FROM patreg WHERE fname = '$fname' AND lname = '$lname'";
+                                        $result = mysqli_query($con, $sql);
+                                        $row = mysqli_fetch_assoc($result);
+                                        $p= $row['pid'];
+                                        ?>
+                                        <div class="form-group">
+                                            <input type="number"  class="form-control"  name="pd"  value="<?php echo $p;?>"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control"  placeholder="Blood Group*" name="blood" required/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="number" step="0.01" class="form-control" placeholder="Weight *" name="wt"  />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="number" step="0.01" class="form-control" placeholder="Height *" name="ht"  />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>add medical history*</label>
+                                            <input type="file" class="form-control"  name="pdf_file" accept=".pdf" title="Upload PDF"  />
+                                        </div>
+                                        
+                                    </div>
+                                
+                                    <div class="col-md-6">
 
+                                        <input type="submit" class="btnRegister" name="medsub1" value="Register"/>
+                                    </div>
+
+                                </div>
+                            </form>
+      </div>
+    </div>
 
       <div class="tab-pane fade  show active" id="list-dash" role="tabpanel" aria-labelledby="list-dash-list">
         <div class="container-fluid container-fullw bg-white" >
