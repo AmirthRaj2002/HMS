@@ -1,0 +1,11 @@
+That's it, your bot is ready! You can try the messenger now, you'll see it in the bottom right corner. The messenger will have a small link to Flow XO unless you're on one of our paid plans.
+
+Option 1: You can share the link below with anyone (great for email or social media):
+
+https://fxo.io/m/triple-buffered-de-2437
+Option 2: To embed the messenger within the body of any webpage, insert the code below where you want to place it:
+
+<iframe src="https://fxo.io/m/triple-buffered-de-2437" width="100%" height="100%" style="border: 3px solid #f9f9fb; width: 100%; height: 100%;" allowfullscreen></iframe>
+Option 3: To add a widget to your website (like the one you see in the bottom right corner now), copy this code and paste just before the closing </body> tag on your web page:
+
+<script src="https://widget.flowxo.com/embed.js" data-fxo-widget="eyJ0aGVtZSI6IiM5ZDY3YzIiLCJ3ZWIiOnsiYm90SWQiOiI2MjY2NzgzNTAzY2Y2MjAwMmVjYzUyODEiLCJ0aGVtZSI6IiM5ZDY3YzIiLCJsYWJlbCI6IkNoYXRCb3QifX0=" async defer></script>
